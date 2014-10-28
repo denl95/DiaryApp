@@ -1,4 +1,4 @@
-package denyslapin;
+Ôªøpackage denyslapin;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -29,7 +29,7 @@ public class ImagePanel extends JPanel implements MouseListener{
 	ImagePanel(File f){
 		try {
 			pm =new JPopupMenu();
-			JMenuItem deleteImage = new JMenuItem("”‰‡ÎËÚ¸");
+			JMenuItem deleteImage = new JMenuItem("‚Äù–¥–∞–ª–∏—Ç—å");
 			deleteImage.addActionListener(new ActionListener(){
 						public void actionPerformed(ActionEvent arg0) {
 							// TODO Auto-generated method stub
@@ -55,7 +55,7 @@ public class ImagePanel extends JPanel implements MouseListener{
 	}
 	ImagePanel(BufferedImage b){
 		pm =new JPopupMenu();
-		JMenuItem deleteImage = new JMenuItem("”‰‡ÎËÚ¸");
+		JMenuItem deleteImage = new JMenuItem("‚Äù–¥–∞–ª–∏—Ç—å");
 		deleteImage.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent arg0) {
 						// TODO Auto-generated method stub

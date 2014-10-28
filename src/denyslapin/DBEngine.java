@@ -1,4 +1,4 @@
-package denyslapin;
+п»їpackage denyslapin;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +41,7 @@ public class DBEngine {
 	}
 	public void updateNote(Note n, int id){
 		try{
-			String query = "Update Запись SET Дата_создания = ?,Название_записи = ?,Контент_записи = ?,Оценка_дня = ? WHERE Код_записи = ?";
+			String query = "Update Р—Р°РїРёСЃСЊ SET Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ = ?,РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё = ?,РљРѕРЅС‚РµРЅС‚_Р·Р°РїРёСЃРё = ?,РћС†РµРЅРєР°_РґРЅСЏ = ? WHERE РљРѕРґ_Р·Р°РїРёСЃРё = ?";
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setDate(1, new java.sql.Date(n.date.getTime()));
 			ps.setString(2, n.name);
@@ -51,7 +51,7 @@ public class DBEngine {
 		    ps.executeUpdate();
 		    ps.close();
 		    
-		    String queryFont = "Update Шрифт Set Цвет_шрифта=?, Размер_шрифта=?, Стиль_шрифта=?, Название_шрифта=? Where Код_записи=?";
+		    String queryFont = "Update РЁСЂРёС„С‚ Set Р¦РІРµС‚_С€СЂРёС„С‚Р°=?, Р Р°Р·РјРµСЂ_С€СЂРёС„С‚Р°=?, РЎС‚РёР»СЊ_С€СЂРёС„С‚Р°=?, РќР°Р·РІР°РЅРёРµ_С€СЂРёС„С‚Р°=? Where РљРѕРґ_Р·Р°РїРёСЃРё=?";
 		    PreparedStatement stf = conn.prepareStatement(queryFont);
 		    stf.setInt(1, n.fontColor.getRGB());
 		    stf.setInt(2, n.font.getSize());
@@ -61,14 +61,14 @@ public class DBEngine {
 		    stf.executeUpdate();
 		    stf.close();
 		    
-		    String deleteImg = "Delete from Изображения Where Код_записи=?";
+		    String deleteImg = "Delete from РР·РѕР±СЂР°Р¶РµРЅРёСЏ Where РљРѕРґ_Р·Р°РїРёСЃРё=?";
 		    PreparedStatement delps = conn.prepareStatement(deleteImg);
 		    delps.setInt(1, id);
 		    delps.executeUpdate();
 		    delps.close();
 		    
 		    if(n.images!=null){
-		    	String queryImage="Insert into Изображения(Изображение, Код_записи)" + "values(?, ?)";
+		    	String queryImage="Insert into РР·РѕР±СЂР°Р¶РµРЅРёСЏ(РР·РѕР±СЂР°Р¶РµРЅРёРµ, РљРѕРґ_Р·Р°РїРёСЃРё)" + "values(?, ?)";
 		    	for(int i=0; i<n.images.size(); i++){
 		    		PreparedStatement stimg = conn.prepareStatement(queryImage);
 		    		BufferedImage f = n.images.get(i);
@@ -94,7 +94,7 @@ public class DBEngine {
     public int saveNote(Note n){
     	int rows = 1;
     	try {
-    		String query = "insert into Запись(Дата_создания,Название_записи,Контент_записи,Оценка_дня,Логин_пользователя) " +
+    		String query = "insert into Р—Р°РїРёСЃСЊ(Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ,РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё,РљРѕРЅС‚РµРЅС‚_Р·Р°РїРёСЃРё,РћС†РµРЅРєР°_РґРЅСЏ,Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ) " +
     				"values(?,?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setDate(1, new java.sql.Date(n.date.getTime()));
@@ -106,14 +106,14 @@ public class DBEngine {
 		    ps.close();
 		    
 		    Statement st = conn.createStatement();
-		    ResultSet rs = st.executeQuery("Select Max(Код_записи) From Запись");
+		    ResultSet rs = st.executeQuery("Select Max(РљРѕРґ_Р·Р°РїРёСЃРё) From Р—Р°РїРёСЃСЊ");
 		    int id = 0;
 		    
 		    while(rs.next()){
 		    	id = rs.getInt(1);
 		    }
 		    
-		    String queryFont = "Insert into Шрифт(Код_записи, Цвет_шрифта, Размер_шрифта, Стиль_шрифта, Название_шрифта)"+
+		    String queryFont = "Insert into РЁСЂРёС„С‚(РљРѕРґ_Р·Р°РїРёСЃРё, Р¦РІРµС‚_С€СЂРёС„С‚Р°, Р Р°Р·РјРµСЂ_С€СЂРёС„С‚Р°, РЎС‚РёР»СЊ_С€СЂРёС„С‚Р°, РќР°Р·РІР°РЅРёРµ_С€СЂРёС„С‚Р°)"+
 		    		"values(?, ?, ?, ?, ?)";
 		    PreparedStatement stf = conn.prepareStatement(queryFont);
 		    stf.setInt(1, id);
@@ -124,7 +124,7 @@ public class DBEngine {
 		    stf.executeUpdate();
 		    stf.close();
 		    if(n.images!=null){
-		    	String queryImage="Insert into Изображения(Изображение, Код_записи)" + "values(?, ?)";
+		    	String queryImage="Insert into РР·РѕР±СЂР°Р¶РµРЅРёСЏ(РР·РѕР±СЂР°Р¶РµРЅРёРµ, РљРѕРґ_Р·Р°РїРёСЃРё)" + "values(?, ?)";
 		    	for(int i=0; i<n.images.size(); i++){
 		    		PreparedStatement stimg = conn.prepareStatement(queryImage);
 		    		BufferedImage f = n.images.get(i);
@@ -156,7 +156,7 @@ public class DBEngine {
     	PreparedStatement stmt;
     	ResultSet rs = null;
 		try {
-			String query = "select * from Запись where Логин_пользователя=?";
+			String query = "select * from Р—Р°РїРёСЃСЊ where Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=?";
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1,login);
 			rs = stmt.executeQuery();      
@@ -169,10 +169,10 @@ public class DBEngine {
     	PreparedStatement stmt;
     	ResultSet rs = null;
 		try {
-			String query = "SELECT Запись.*, Шрифт.Название_шрифта, Шрифт.Размер_шрифта, Шрифт.Стиль_шрифта, Шрифт.Цвет_шрифта, Изображения.Изображение, *"
-					+ "FROM (Запись LEFT JOIN Изображения ON Запись.Код_записи = Изображения.Код_записи) "
-					+ "INNER JOIN Шрифт ON Запись.Код_записи = Шрифт.Код_записи"
-			 		+ " WHERE Логин_пользователя=? And Название_записи=? And Дата_создания=?";
+			String query = "SELECT Р—Р°РїРёСЃСЊ.*, РЁСЂРёС„С‚.РќР°Р·РІР°РЅРёРµ_С€СЂРёС„С‚Р°, РЁСЂРёС„С‚.Р Р°Р·РјРµСЂ_С€СЂРёС„С‚Р°, РЁСЂРёС„С‚.РЎС‚РёР»СЊ_С€СЂРёС„С‚Р°, РЁСЂРёС„С‚.Р¦РІРµС‚_С€СЂРёС„С‚Р°, РР·РѕР±СЂР°Р¶РµРЅРёСЏ.РР·РѕР±СЂР°Р¶РµРЅРёРµ, *"
+					+ "FROM (Р—Р°РїРёСЃСЊ LEFT JOIN РР·РѕР±СЂР°Р¶РµРЅРёСЏ ON Р—Р°РїРёСЃСЊ.РљРѕРґ_Р·Р°РїРёСЃРё = РР·РѕР±СЂР°Р¶РµРЅРёСЏ.РљРѕРґ_Р·Р°РїРёСЃРё) "
+					+ "INNER JOIN РЁСЂРёС„С‚ ON Р—Р°РїРёСЃСЊ.РљРѕРґ_Р·Р°РїРёСЃРё = РЁСЂРёС„С‚.РљРѕРґ_Р·Р°РїРёСЃРё"
+			 		+ " WHERE Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=? And РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё=? And Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ=?";
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1, login);
 			stmt.setString(2, name);
@@ -191,7 +191,7 @@ public class DBEngine {
     public void deleteNote(String name, String date){
     	PreparedStatement st ;
     	try{
-    		String query = "Delete from Запись Where Название_записи=? And Дата_создания=? and Логин_пользователя=?";
+    		String query = "Delete from Р—Р°РїРёСЃСЊ Where РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё=? And Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ=? and Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=?";
     		st=conn.prepareStatement(query);
     		st.setString(1, name);
     		SimpleDateFormat f = new SimpleDateFormat("dd.MM.yyyy");
@@ -210,7 +210,7 @@ public class DBEngine {
     public void deleteNote(int id){
     	PreparedStatement st ;
     	try{
-    		String query = "Delete from Запись Where Код_записи=? and Логин_пользователя=?";
+    		String query = "Delete from Р—Р°РїРёСЃСЊ Where РљРѕРґ_Р·Р°РїРёСЃРё=? and Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=?";
     		st=conn.prepareStatement(query);
     		st.setInt(1, id);
     		st.setString(2, login);
@@ -224,7 +224,7 @@ public class DBEngine {
     	PreparedStatement st;
     	ResultSet rs = null;
     	try{
-    		String query = "Select * from Запись Where (Дата_создания Between ? And ?) And Логин_пользователя=?";
+    		String query = "Select * from Р—Р°РїРёСЃСЊ Where (Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ Between ? And ?) And Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=?";
     		st=conn.prepareStatement(query);
     		st.setDate(1, new java.sql.Date(start.getTime()));
     		st.setDate(2, new java.sql.Date(end.getTime()));
@@ -240,7 +240,7 @@ public class DBEngine {
     	PreparedStatement st;
     	ResultSet rs = null;
     	try{
-    		String query = "Select * from Запись Where Название_записи Like ? And Логин_пользователя=?";
+    		String query = "Select * from Р—Р°РїРёСЃСЊ Where РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё Like ? And Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=?";
     		st=conn.prepareStatement(query);
     		//st.setString(1, login);
     		st.setString(1, "%" + filter + "%");
@@ -256,7 +256,7 @@ public class DBEngine {
     	PreparedStatement st;
     	ResultSet rs = null;
     	try{
-    		String query = "Select * from Запись Where Название_записи Like ? And Логин_пользователя=? And (Дата_создания Between ? And ?)";
+    		String query = "Select * from Р—Р°РїРёСЃСЊ Where РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё Like ? And Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=? And (Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ Between ? And ?)";
     		st=conn.prepareStatement(query);
     		//st.setString(1, login);
     		st.setString(1, "%" + filter + "%");
@@ -282,7 +282,7 @@ public class DBEngine {
     public void addUser(String pass){
     	PreparedStatement ps = null;
     	try{
-    		String query = "Insert into Пользователи(Логин_пользователя, Пароль) values(?,?)";
+    		String query = "Insert into РџРѕР»СЊР·РѕРІР°С‚РµР»Рё(Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РџР°СЂРѕР»СЊ) values(?,?)";
     		ps = conn.prepareStatement(query);
     		ps.setString(1, login);
     		ps.setString(2, pass);
@@ -293,7 +293,7 @@ public class DBEngine {
     	PreparedStatement ps = null;
     	ResultSet rs = null;
     	try{
-    		String query = "Select * from Пользователи where Логин_пользователя=?";
+    		String query = "Select * from РџРѕР»СЊР·РѕРІР°С‚РµР»Рё where Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=?";
     		ps = conn.prepareStatement(query);
     		ps.setString(1, login);
     		rs = ps.executeQuery();
@@ -313,7 +313,7 @@ public class DBEngine {
     	PreparedStatement ps = null;
     	ResultSet rs = null;
     	try{
-    		String query = "Select * from Пользователи where Логин_пользователя=? and Пароль=?";
+    		String query = "Select * from РџРѕР»СЊР·РѕРІР°С‚РµР»Рё where Р›РѕРіРёРЅ_РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ=? and РџР°СЂРѕР»СЊ=?";
     		ps = conn.prepareStatement(query);
     		ps.setString(1, login);
     		ps.setString(2, pass);

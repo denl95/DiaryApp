@@ -1,4 +1,4 @@
-package denyslapin;
+﻿package denyslapin;
 
 import java.awt.Color;
 import java.awt.Font;

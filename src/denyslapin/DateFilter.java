@@ -1,4 +1,4 @@
-package denyslapin;
+ï»¿package denyslapin;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -68,15 +68,15 @@ public class DateFilter extends JDialog {
 							if(date1.compareTo(date2)<=0){
 								dispose();
 							}
-							else{JOptionPane.showMessageDialog(null, "Âòîðàÿ äàòà äîëæíà áûòü ïîñëå ïåðâîé");}
+							else{JOptionPane.showMessageDialog(null, "Â¬Ñ‚Ð¾Ñ€Ð°Â¤ Ð´Ð°Ñ‚Ð° Ð´Ð¾Ð»Ð¶Ð½Ð° Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾ÑÐ»Ðµ Ð¿ÐµÑ€Ð²Ð¾Ð¹");}
 						}
 					}
 					
 				});
 			}
 			{
-				JButton cancelButton = new JButton("Îòìåíà");
-				cancelButton.setActionCommand("Îòìåíà");
+				JButton cancelButton = new JButton("ÑœÑ‚Ð¼ÐµÐ½Ð°");
+				cancelButton.setActionCommand("ÑœÑ‚Ð¼ÐµÐ½Ð°");
 				buttonPane.add(cancelButton);
 				cancelButton.addActionListener(new ActionListener(){
 					@Override

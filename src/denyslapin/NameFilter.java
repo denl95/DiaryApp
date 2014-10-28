@@ -1,4 +1,4 @@
-package denyslapin;
+Ôªøpackage denyslapin;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -62,7 +62,7 @@ public class NameFilter extends JDialog {
 				});
 			}
 			{
-				JButton cancelButton = new JButton("ŒÚÏÂÌ‡");
+				JButton cancelButton = new JButton("–û—Ç–º–µ–Ω–∞");
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 				cancelButton.addActionListener(new ActionListener(){

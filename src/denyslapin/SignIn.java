@@ -1,4 +1,4 @@
-package denyslapin;
+п»їpackage denyslapin;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -43,14 +43,14 @@ public class SignIn extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize( 246, 230);
-		setTitle("Вход");
+		setTitle("Р’С…РѕРґ");
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLogin = new JLabel("Логин");
+		JLabel lblLogin = new JLabel("Р›РѕРіРёРЅ");
 		lblLogin.setBounds(40, 44, 46, 14);
 		contentPane.add(lblLogin);
 		
@@ -59,7 +59,7 @@ public class SignIn extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblPassword = new JLabel("Пароль");
+		JLabel lblPassword = new JLabel("РџР°СЂРѕР»СЊ");
 		lblPassword.setBounds(40, 89, 46, 14);
 		contentPane.add(lblPassword);
 		
@@ -67,7 +67,7 @@ public class SignIn extends JFrame {
 		passwordField.setBounds(40, 102, 156, 20);
 		contentPane.add(passwordField);
 		
-		JButton signInButton = new JButton("Войти");
+		JButton signInButton = new JButton("Р’РѕР№С‚Рё");
 		signInButton.setBounds(40, 129, 156, 23);
 		contentPane.add(signInButton);
 		getRootPane().setDefaultButton(signInButton);
@@ -82,7 +82,7 @@ public class SignIn extends JFrame {
 					listNote.setVisible(true);
 				}
 				else{
-					JOptionPane.showMessageDialog(null, "Неверный логин или пароль");
+					JOptionPane.showMessageDialog(null, "РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ");
 				}
 				
 			}
@@ -90,7 +90,7 @@ public class SignIn extends JFrame {
 		});
 		
 		
-		JButton signUpButton = new JButton("Зарегистрироваться");
+		JButton signUpButton = new JButton("Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ");
 		signUpButton.setBounds(40, 153, 156, 23);
 		contentPane.add(signUpButton);
 		signUpButton.addActionListener(new ActionListener(){

@@ -1,4 +1,4 @@
-package denyslapin;
+﻿package denyslapin;
 
 import java.awt.*;
 import javax.swing.JScrollPane;

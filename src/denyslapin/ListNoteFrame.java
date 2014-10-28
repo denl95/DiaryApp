@@ -1,4 +1,4 @@
-package denyslapin;
+п»їpackage denyslapin;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -96,9 +96,9 @@ public class ListNoteFrame extends JFrame {
 		this.setMinimumSize(d);
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		datefilter = new DateFilter(this, "Фильтр по дате");
-		namefilter = new NameFilter(this, "Фильтр по названию");
-		menu = new JMenu("Действия");
+		datefilter = new DateFilter(this, "Р¤РёР»СЊС‚СЂ РїРѕ РґР°С‚Рµ");
+		namefilter = new NameFilter(this, "Р¤РёР»СЊС‚СЂ РїРѕ РЅР°Р·РІР°РЅРёСЋ");
+		menu = new JMenu("Р”РµР№СЃС‚РІРёСЏ");
 		/*menu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -110,7 +110,7 @@ public class ListNoteFrame extends JFrame {
 		});*/
 		menuBar.add(menu);
 		
-		JMenuItem createNote = new JMenuItem("Cоздать новую запись");
+		JMenuItem createNote = new JMenuItem("CРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ Р·Р°РїРёСЃСЊ");
 		createNote.addActionListener(new ActionListener(){
 
 			@Override
@@ -125,7 +125,7 @@ public class ListNoteFrame extends JFrame {
 		});
 		menu.add(createNote);
 		
-		JMenuItem changeUser = new JMenuItem("Cменить пользователя");
+		JMenuItem changeUser = new JMenuItem("CРјРµРЅРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ");
 		changeUser.addActionListener(new ActionListener(){
 
 			@Override
@@ -139,7 +139,7 @@ public class ListNoteFrame extends JFrame {
 		});
 		menu.add(changeUser);
 		
-		JMenuItem exit = new JMenuItem("Выйти");
+		JMenuItem exit = new JMenuItem("Р’С‹Р№С‚Рё");
 		exit.addActionListener(new ActionListener(){
 
 			@Override
@@ -160,7 +160,7 @@ public class ListNoteFrame extends JFrame {
 		contentPane.add(panel, BorderLayout.NORTH);
 		
 		final String filter[] = new String[1];
-		nFilterButton = new JButton("Фильтр по названию");
+		nFilterButton = new JButton("Р¤РёР»СЊС‚СЂ РїРѕ РЅР°Р·РІР°РЅРёСЋ");
 		nFilterButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				namefilter.setVisible(true);
@@ -174,7 +174,7 @@ public class ListNoteFrame extends JFrame {
 		
 		
 		final Date[] dates = new Date[2];
-		dFilterButton = new JButton("Фильтр по дате");
+		dFilterButton = new JButton("Р¤РёР»СЊС‚СЂ РїРѕ РґР°С‚Рµ");
 		dFilterButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
@@ -249,10 +249,10 @@ public class ListNoteFrame extends JFrame {
 							if(rs.next()){
 								
 							id=rs.getInt(1);
-							Date d = rs.getDate("Дата_создания");
-							String name1 = rs.getString("Название_записи");
-							String content = rs.getString("Контент_записи");
-							int rate = rs.getInt("Оценка_дня");
+							Date d = rs.getDate("Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ");
+							String name1 = rs.getString("РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё");
+							String content = rs.getString("РљРѕРЅС‚РµРЅС‚_Р·Р°РїРёСЃРё");
+							int rate = rs.getInt("РћС†РµРЅРєР°_РґРЅСЏ");
 							String nameFont = rs.getString(7);
 							int styleFont = rs.getInt(8);
 							int sizeFont = rs.getInt(9);
@@ -299,7 +299,7 @@ public class ListNoteFrame extends JFrame {
 		FlowLayout flowLayout = (FlowLayout) panel_1.getLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
 		contentPane.add(panel_1, BorderLayout.SOUTH);
-		showNoteButton = new JButton("Просмотреть запись");
+		showNoteButton = new JButton("РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°РїРёСЃСЊ");
 		panel_1.add(showNoteButton);
 		showNoteButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -316,10 +316,10 @@ public class ListNoteFrame extends JFrame {
 						if(rs.next()){
 							
 						id=rs.getInt(1);
-						Date d = rs.getDate("Дата_создания");
-						String name1 = rs.getString("Название_записи");
-						String content = rs.getString("Контент_записи");
-						int rate = rs.getInt("Оценка_дня");
+						Date d = rs.getDate("Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ");
+						String name1 = rs.getString("РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё");
+						String content = rs.getString("РљРѕРЅС‚РµРЅС‚_Р·Р°РїРёСЃРё");
+						int rate = rs.getInt("РћС†РµРЅРєР°_РґРЅСЏ");
 						String nameFont = rs.getString(7);
 						int styleFont = rs.getInt(8);
 						int sizeFont = rs.getInt(9);
@@ -359,7 +359,7 @@ public class ListNoteFrame extends JFrame {
 			}
 		});
 		
-		deleteButton = new JButton("Удалить запись");
+		deleteButton = new JButton("РЈРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ");
 		panel_1.add(deleteButton);
 		deleteButton.addActionListener(new ActionListener(){
 
@@ -384,18 +384,18 @@ public class ListNoteFrame extends JFrame {
 	public void showNotes(ResultSet result,Vector<Vector<String>> data, Vector<Integer> id){
 		
 		Vector<String> colsnames = new Vector<String>();
-		colsnames.add("Название");
-		colsnames.add("Дата");
+		colsnames.add("РќР°Р·РІР°РЅРёРµ");
+		colsnames.add("Р”Р°С‚Р°");
 		try{
 		while (result.next()) {
 			 Vector<String> row = new Vector<String>();
-       	     String name = result.getString("Название_записи");
-	         java.sql.Date date = result.getDate("Дата_создания");
+       	     String name = result.getString("РќР°Р·РІР°РЅРёРµ_Р·Р°РїРёСЃРё");
+	         java.sql.Date date = result.getDate("Р”Р°С‚Р°_СЃРѕР·РґР°РЅРёСЏ");
 	         row.add(name);
 	         SimpleDateFormat f= new SimpleDateFormat("dd.MM.yyyy");
 	         row.add(f.format(date));
 	         data.add(row);
-	         int temp = result.getInt("Код_записи");
+	         int temp = result.getInt("РљРѕРґ_Р·Р°РїРёСЃРё");
 	         id.add(temp);
 	      }
 		

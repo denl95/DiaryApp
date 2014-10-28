@@ -1,4 +1,4 @@
-package denyslapin;
+п»їpackage denyslapin;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -37,7 +37,7 @@ public class SignUp extends JFrame {
 		setSize( 246, 230);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setTitle("Регистрация");
+		setTitle("Р РµРіРёСЃС‚СЂР°С†РёСЏ");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -48,11 +48,11 @@ public class SignUp extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblLogin = new JLabel("Логин");
+		JLabel lblLogin = new JLabel("Р›РѕРіРёРЅ");
 		lblLogin.setBounds(41, 40, 46, 14);
 		contentPane.add(lblLogin);
 		
-		JLabel lblPassword = new JLabel("Пароль");
+		JLabel lblPassword = new JLabel("РџР°СЂРѕР»СЊ");
 		lblPassword.setBounds(41, 82, 46, 14);
 		contentPane.add(lblPassword);
 		
@@ -61,7 +61,7 @@ public class SignUp extends JFrame {
 		contentPane.add(passField);
 		passField.setColumns(10);
 		
-		JLabel label = new JLabel("Повторите пароль");
+		JLabel label = new JLabel("РџРѕРІС‚РѕСЂРёС‚Рµ РїР°СЂРѕР»СЊ");
 		label.setBounds(41, 125, 156, 14);
 		contentPane.add(label);
 		
@@ -69,7 +69,7 @@ public class SignUp extends JFrame {
 		passwordField.setBounds(41, 139, 156, 20);
 		contentPane.add(passwordField);
 		
-		JButton signUpButton = new JButton("Зарегистрироваться");
+		JButton signUpButton = new JButton("Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ");
 		signUpButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String login = textField.getText();
@@ -84,11 +84,11 @@ public class SignUp extends JFrame {
 						si.setVisible(true);
 					}
 					else{
-						JOptionPane.showMessageDialog(null, "Пароли не совпадают", "Ошибка", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 					}
 				}
 				else{
-					JOptionPane.showMessageDialog(null, "Пользователь с таким логином уже существует", "Ошибка", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚", "РћС€РёР±РєР°", JOptionPane.ERROR_MESSAGE);
 				}
 				
 			}
