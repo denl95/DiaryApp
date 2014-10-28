@@ -1,4 +1,4 @@
-package denyslapin;
+п»їpackage denyslapin;
 
 
 import java.awt.BorderLayout;
@@ -84,28 +84,28 @@ public class EditingFrame extends JFrame {
 		});
 		menuBar = new JMenuBar();
 		this.setJMenuBar(menuBar);
-		JMenu actions = new JMenu("Действия");
+		JMenu actions = new JMenu("Р”РµР№СЃС‚РІРёСЏ");
 		menuBar.add(actions);
 		
-		JMenuItem saveMenu = new JMenuItem("Сохранить");
+		JMenuItem saveMenu = new JMenuItem("РЎРѕС…СЂР°РЅРёС‚СЊ");
 		saveMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				String sField = textField.getText();
 				String sArea = textArea.getText();
 				if((sField.isEmpty())||(sArea.isEmpty())||(dp.getDate()==null)){
-					JOptionPane.showMessageDialog(main, "Заполните необходимые поля", "Cообщение", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(main, "Р—Р°РїРѕР»РЅРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїРѕР»СЏ", "CРѕРѕР±С‰РµРЅРёРµ", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
 					saveNote();
-					JOptionPane.showMessageDialog(main, "Cохранение успешно завершено", "Cообщение", JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(main, "CРѕС…СЂР°РЅРµРЅРёРµ СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅРѕ", "CРѕРѕР±С‰РµРЅРёРµ", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
 		actions.add(saveMenu);
 		
 		
-		JMenuItem setImage = new JMenuItem("Прикрепить картинку");
+		JMenuItem setImage = new JMenuItem("РџСЂРёРєСЂРµРїРёС‚СЊ РєР°СЂС‚РёРЅРєСѓ");
 		actions.add(setImage);
 		setImage.addActionListener(new ActionListener() {
 			@Override
@@ -134,7 +134,7 @@ public class EditingFrame extends JFrame {
 				}
 			}
 		});
-		JMenuItem showList = new JMenuItem("Просмотреть все записи");
+		JMenuItem showList = new JMenuItem("РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ Р·Р°РїРёСЃРё");
 		showList.addActionListener(new ActionListener(){
 
 			@Override
@@ -146,7 +146,7 @@ public class EditingFrame extends JFrame {
 		});
 		actions.add(showList);
 		
-		JMenuItem exit = new JMenuItem("Выйти");
+		JMenuItem exit = new JMenuItem("Р’С‹Р№С‚Рё");
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				boolean isExit = true;
@@ -195,7 +195,7 @@ public class EditingFrame extends JFrame {
 		mainpanel.add(calendar);
 		calendar.setLayout(null);
 		
-		JLabel label = new JLabel("Оценка дня");
+		JLabel label = new JLabel("РћС†РµРЅРєР° РґРЅСЏ");
 		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		label.setBounds(20, 43, 119, 32);
 		calendar.add(label);
@@ -264,22 +264,22 @@ public class EditingFrame extends JFrame {
 		});
 		size.setModel(new SpinnerNumberModel(12, 8, 20, 1));
 		panel.add(size);
-		String items[] = {"Черный","Красный", "Зеленый"};
+		String items[] = {"Р§РµСЂРЅС‹Р№","РљСЂР°СЃРЅС‹Р№", "Р—РµР»РµРЅС‹Р№"};
 		colors = new JComboBox(items);
 		colors.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String item = (String)colors.getSelectedItem();
 				switch (item)
 				{
-				case "Черный":
+				case "Р§РµСЂРЅС‹Р№":
 					textField.setForeground(Color.BLACK);
 					textArea.setForeground(Color.BLACK);
 					break;
-				case "Красный":
+				case "РљСЂР°СЃРЅС‹Р№":
 					textField.setForeground(Color.RED);
 					textArea.setForeground(Color.RED);
 					break;
-				case "Зеленый":
+				case "Р—РµР»РµРЅС‹Р№":
 					textField.setForeground(Color.GREEN);
 					textArea.setForeground(Color.GREEN);
 					break;
@@ -288,26 +288,26 @@ public class EditingFrame extends JFrame {
 			}
 		});
 		panel.add(colors);
-		String styles[] = {"Обычный","Жирный","Курсив","Жирный с курсивом"};
+		String styles[] = {"РћР±С‹С‡РЅС‹Р№","Р–РёСЂРЅС‹Р№","РљСѓСЂСЃРёРІ","Р–РёСЂРЅС‹Р№ СЃ РєСѓСЂСЃРёРІРѕРј"};
 		
 		style = new JComboBox(styles);
 		style.setFont(new Font("Tahoma", Font.BOLD, 12));
 		style.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				switch ((String)style.getSelectedItem()){
-				case "Обычный":
+				case "РћР±С‹С‡РЅС‹Р№":
 					textField.setFont(new Font((String)name.getSelectedItem(),Font.PLAIN,(int)size.getValue()));
 					textArea.setFont(new Font((String)name.getSelectedItem(),Font.PLAIN,(int)size.getValue()));
 					break;
-				case "Жирный":
+				case "Р–РёСЂРЅС‹Р№":
 					textField.setFont(new Font((String)name.getSelectedItem(),Font.BOLD,(int)size.getValue()));
 					textArea.setFont(new Font((String)name.getSelectedItem(),Font.BOLD,(int)size.getValue()));
 					break;
-				case "Курсив":
+				case "РљСѓСЂСЃРёРІ":
 					textField.setFont(new Font((String)name.getSelectedItem(),Font.ITALIC,(int)size.getValue()));
 					textArea.setFont(new Font((String)name.getSelectedItem(),Font.ITALIC,(int)size.getValue()));
 					break;
-				case "Жирный с курсивом":
+				case "Р–РёСЂРЅС‹Р№ СЃ РєСѓСЂСЃРёРІРѕРј":
 					textField.setFont(new Font((String)name.getSelectedItem(), Font.BOLD | Font.ITALIC,(int)size.getValue()));
 					textArea.setFont(new Font((String)name.getSelectedItem(), Font.BOLD | Font.ITALIC,(int)size.getValue()));
 					break;
@@ -385,12 +385,12 @@ public class EditingFrame extends JFrame {
 	public void onClose(boolean isExit){
 		EditingFrame main = this;
 		if(isChangedText){
-			int value = JOptionPane.showConfirmDialog(main, "Cохранить изменения?");
+			int value = JOptionPane.showConfirmDialog(main, "CРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ?");
 			if(value==JOptionPane.YES_OPTION){
 				String sField = textField.getText();
 				String sArea = textArea.getText();
 				if((sField.isEmpty())||(sArea.isEmpty())||(dp.getDate()==null)){
-					JOptionPane.showMessageDialog(main, "Заполните необходимые поля", "Cообщение", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(main, "Р—Р°РїРѕР»РЅРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РїРѕР»СЏ", "CРѕРѕР±С‰РµРЅРёРµ", JOptionPane.ERROR_MESSAGE);
 				}
 				else{
 					saveNote();
